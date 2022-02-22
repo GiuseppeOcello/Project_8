@@ -7,23 +7,183 @@
    font-family: 'Titillium Web', sans-serif;
 }
 
+/* Variables */
+
+:root {
+   --color-main: white;
+   --color-secondary: #e7e7e7;
+
+   --color-font-primary: #404A51;
+   --color-font-secondary: #535353;
+   
+   --font-size-large: 15px;
+   --font-size-medium: 10px;
+}
+
+body {
+   background-color: var(--color-secondary);
+}
+
+h1 {
+   padding-left: 30px;
+   color: var(--color-font-secondarys);
+}
+
 main {
-   margin: 30px ;
+   margin: 10px;
 
    display: grid;
-   grid-template-columns: repeat(3, minmax(300px, 400px));
+   grid-template-columns: repeat(1, minmax(300px, 400px));
    grid-auto-columns: minmax(300px, 400px);
+   grid-auto-flow: row;
    gap: 25px;
    justify-content: center;
    justify-items: center;
    align-content: center;
 }
 
-div {
+/* main {
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+
+} */
+
+.card {
+   display: flex;
+   align-content: center;
+   align-items: center;
    width: 100%;
    height: 180px;
+
+   padding: 10px;
+
    background-color: aqua;
    border: 2px solid gray;
    border-radius: 5px;
 
+   background-color: var(--color-main);
+}
+
+.info-container {
+   padding-left: 10px;
+}
+
+.info-container p {
+   color: var(--color-font-secondary);
+   font-weight: 400;
+   padding: 0.15rem;
+}
+
+.name {
+   color: var(--color-font-primary);
+}
+
+.avatar {
+   width: 100px;
+   height: 100px;
+   margin: 10px;
+   border-radius: 50%;
+   border: 2px solid gray;
+}
+
+.modal-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+
+
+/* Overlay */
+
+.overlay {
+   display: flex;
+   flex-direction: column;
+   position: fixed;
+
+   background: transparent;
+   justify-content: center;
+   inset: 0;
+   z-index: 100;
+   text-align: center;
+   transition: all 0.3s ease-in;
+ }
+
+ .hidden {
+    display: none;
+ }
+
+.modal {
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   width: 400px;
+   height: 450px;
+   background-color: var(--color-main);
+   border: 1px solid lightgrey;
+   border-radius: 5px;
+   padding: 10px;
+   margin-left: auto;
+   margin-right: auto;
+}
+
+.btn-close {
+   position: absolute;
+   top: 15px;
+   right: 15px;
+   cursor: pointer;
+   font-weight: 500;
+   transition: var(--transition);
+}
+
+.btn-close:hover {
+   font-weight: 800;
+}
+
+.modal-content .avatar {
+   margin-bottom: 20px;
+}
+
+hr {
+   width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 768px) {
+   main {
+      grid-template-columns: repeat(2, minmax(300px, 400px));
+
+   }
+}
+
+@media screen and (min-width: 1024px) {
+   main {
+      grid-template-columns: repeat(3, minmax(300px, 400px));
+
+   }
+}
+
+@media screen and (min-width: 1200px) {
+   main {
+      grid-template-columns: repeat(4, minmax(300px, 400px));
+
+   }
 }
