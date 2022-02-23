@@ -1,6 +1,6 @@
 // === GLobal Variables === //
 let employees = [];
-const employeesNumber = generateRandomNumber(100, 12);
+const employeesNumber = 12;
 // URL + Query String as per https://randomuser.me/documentation
 const urlquery = `https://randomuser.me/api/?results=${employeesNumber}&inc=name, picture,
 email, location, phone, dob &noinfo &nat=US`;
@@ -10,12 +10,6 @@ const btnClose = document.querySelector(".btn-close");
 const modalContainer = document.querySelector(".modal-container");
 let currentEmployee = 0;
 
-// === Reusable Functions === //
-// Generates a random numbers given the upper and lower limits
-function generateRandomNumber (upper, lower = 0) {
-   let randomNumber = Math.floor(Math.random() * (upper - lower) ) + lower;
-   return randomNumber;
-}
 
 // fetch data from API @ https://randomuser.me/api
 fetch(urlquery)
@@ -45,7 +39,7 @@ function displayEmployees(employeeData) {
    <p class="address">${city}</p>
    </div>
    </div>
-   `
+   `;
    });
    gridContainer.innerHTML = employeeHTML;
 }
@@ -119,7 +113,7 @@ lookUpValue.addEventListener('keyup', (e) => {
    filterEmployees(searchString); 
 
    if (e.code == "Enter") {
-      btnSearch.click()
+      btnSearch.click();
    }
 });
 

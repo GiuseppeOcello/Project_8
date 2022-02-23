@@ -162,7 +162,8 @@ a {
    flex-direction: column;
    position: fixed;
 
-   background: transparent;
+   background: rgba(152, 152, 152, 0.25);
+   backdrop-filter: blur(1px);
    justify-content: center;
    inset: 0;
    z-index: 100;
